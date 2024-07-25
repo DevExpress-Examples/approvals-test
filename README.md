@@ -5,6 +5,7 @@
 <!-- default badges end -->
 # approvals-test
 test repo for pr approvals test
+new string added
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
