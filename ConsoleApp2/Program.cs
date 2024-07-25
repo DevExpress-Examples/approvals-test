@@ -19,5 +19,8 @@ else
 }
 Console.WriteLine(sw.ElapsedTicks);
 Console.WriteLine("String added");
+Console.WriteLine("String added");
+Console.WriteLine("String added");
+Console.WriteLine("String added");
 
 
