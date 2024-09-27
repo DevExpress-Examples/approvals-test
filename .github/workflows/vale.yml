@@ -16,12 +16,10 @@ jobs:
         with:
           repository: DevExpress/vale-styles
           path: vale-styles
-      - name: list files
-        run: pwd && ls -a
       - name: copy vale rules to the root repo
-        run: shopt -s dotglob && cp -r ./vale-styles/vale/* .
-      - name: list files
-        run: pwd && ls -a
-      - uses: errata-ai/vale-action@reviewdog
+        run: shopt -s dotglob && cp -r ./vale-styles/vale/* .      
+      - name: vale linter check
+        uses: errata-ai/vale-action@reviewdog
         with:
           files: README.md
+          fail_on_error: true
