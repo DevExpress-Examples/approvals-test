@@ -19,7 +19,7 @@ jobs:
       - name: list files
         run: pwd && ls -a
       - name: copy vale rules to the root repo
-        run: cp -r ./vale-styles/vale/* .
+        run: shopt -s dotglob && cp -r ./vale-styles/vale/* .
       - name: list files
         run: pwd && ls -a
       - uses: errata-ai/vale-action@reviewdog
