@@ -11,14 +11,12 @@ jobs:
     steps:
       - name: clone repo
         uses: actions/checkout@v4
-      - name: clone vale-styles repo
-        env:
-          VALE_STYLES_ACCESS_KEY: ${{ secrets.VALE_STYLES_ACCESS_KEY }}
+      - name: clone vale-styles repo        
         uses: actions/checkout@v4
         with:
           repository: DevExpress/vale-styles
           path: vale-styles
-          ssh-key: "$VALE_STYLES_ACCESS_KEY"
+          ssh-key: ${{ secrets.VALE_STYLES_ACCESS_KEY }}
       - name: copy vale rules to the root repo
         run: shopt -s dotglob && cp -r ./vale-styles/vale/* .      
       - name: vale linter check
