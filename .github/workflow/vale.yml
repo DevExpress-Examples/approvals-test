@@ -1,0 +1,23 @@
+name: vale-validation
+on:
+  pull_request:
+    paths:
+    - README.md
+
+jobs:
+  vale:
+    name: runner / vale
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone repo
+        uses: actions/checkout@v4
+      - name: clone vale-styles repo
+        uses: actions/checkout@v4
+        with:
+          repository: DevExpress/vale-styles
+          path: vale-styles
+      - name: copy vale rules to the root repo
+        run: cp -r /vale-styles/vale/* .
+      - uses: errata-ai/vale-action@reviewdog
+        with:
+          files: README.md
