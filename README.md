@@ -8,6 +8,10 @@ test repo for pr approvals test
 
 gantt is a boolean value. - for tests asdf
 
+Check some new changes
+
+gantt is a boolean value
+
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
