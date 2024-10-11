@@ -25,4 +25,4 @@ jobs:
           files: README.md
           fail_on_error: true
           filter_mode: nofilter
-          reporter: github-pr-review
+          reporter: github-check
