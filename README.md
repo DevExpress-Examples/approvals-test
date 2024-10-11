@@ -6,11 +6,11 @@
 # approvals-test
 test repo for pr approvals test
 
-gantt is a boolean value. - for tests asdf
+gantt is a boolean value. - for tests asdf new test
 
 Check some new changes
 
-gantt is a boolean value
+gantt is a boolean value and something else
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
