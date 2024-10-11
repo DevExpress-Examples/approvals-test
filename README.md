@@ -4,13 +4,10 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 # approvals-test
+
 test repo for pr approvals test
 
-gantt is a boolean value. - for tests asdf new test
-
 Check some new changes
-
-gantt is a boolean value and something else
 
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
