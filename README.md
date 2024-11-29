@@ -12,3 +12,5 @@ test repo for pr approvals test
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
+Test changes to readme.
