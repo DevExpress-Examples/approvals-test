@@ -18,3 +18,5 @@ else
     Console.WriteLine("YES");
 }
 Console.WriteLine(sw.ElapsedTicks);
+
+Console.WriteLine("Exit");
