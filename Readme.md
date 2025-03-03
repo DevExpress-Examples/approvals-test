@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 # approvals-test
-test repo for pr approvals test
+test repo for pr approvals test (vale test)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
