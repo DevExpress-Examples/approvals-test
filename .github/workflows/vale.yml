@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: clone repo
         uses: actions/checkout@v4
+        
       - name: clone vale-styles repo
         uses: actions/checkout@v4
         with:
@@ -21,10 +22,37 @@ jobs:
           ssh-key: ${{ secrets.VALE_STYLES_ACCESS_KEY }}
       - name: copy vale rules to the root repo
         run: shopt -s dotglob && cp -r ./vale-styles/vale/* .
+        
+      - name: Prepare existing README files list
+        id: prepare
+        shell: bash
+        run: |
+          candidates=(README.md readme.md Readme.md)
+          files_json_parts=()
+          for f in "${candidates[@]}"; do
+            if [[ -f "$f" ]]; then
+              files_json_parts+=("\"$f\"")
+            fi
+          done
+          if [[ ${#files_json_parts[@]} -eq 0 ]]; then
+            echo "No README variants found. Skipping Vale."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            files_json="[$(IFS=,; echo "${files_json_parts[*]}")]"
+            echo "Will lint: $files_json"
+            echo "valefiles=$files_json" >> "$GITHUB_OUTPUT"
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: vale linter check
+        if: steps.prepare.outputs.skip == 'false'
         uses: DevExpress/vale-action@reviewdog
         with:
-          files: '["README.md", "readme.md", "Readme.md"]'
+          files: ${{ steps.prepare.outputs.valefiles }}
           fail_on_error: true
           filter_mode: nofilter
           reporter: github-check
+
+      - name: Note skipped (no README present)
+        if: steps.prepare.outputs.skip == 'true'
+        run: echo "Vale step skipped because no README variant exists."
